@@ -19,7 +19,9 @@ Ext.define('MyApp.view.main.Main', {
         // 'MyApp.view.main.users.userWindowForm',
         'MyApp.view.users.userFormController',
         'MyApp.view.users.UserGrid',
-        'MyApp.view.users.formController'
+        'MyApp.view.users.formController',
+        'MyApp.view.students.StudentsForm',
+        'MyApp.view.students.StudentGrid'
     ],
 
     // controller: 'main',
@@ -86,39 +88,50 @@ Ext.define('MyApp.view.main.Main', {
             xtype: 'mainlist'
         }]
     },
-     {
+    {
         title: 'Users',
         iconCls: 'fa-user',
-          items: [
+        items: [
             {
-            text: 'Create User',
-            xtype: 'button',
-            handler: function () {
-                main = Ext.create('MyApp.view.users.userFormController');
-                main.show()
-                //console.warn(abc)
+                text: 'Create User',
+                xtype: 'button',
+                x:1000,
+                handler: function () {
+                    main = Ext.create('MyApp.view.users.userFormController');
+                    main.show()
+                    //console.warn(abc)
+                },
             },
-          },
-
-          {
-              xtype: 'usergrid'
-          }
-         // {
-           // items: [{
-                //  xtype: 'usergrid'
-       //   }]
-  
-      // }
+            {
+                xtype: 'usergrid'
+            }
         ],
-          
+    },
 
-    }, 
-       /*  {
-            title: 'Groups',
-            iconCls: 'fa-users',
-                
-        },*/
-        
+    {
+        title: 'Student',
+        iconCls: 'fa-user',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'button',
+            text: 'addStudent',
+            x: 1000,
+            handler: function () {
+                main = Ext.create('MyApp.view.students.StudentsForm');
+                main.show()
+            }
+        },
+        {
+            xtype: 'StudentGrid'
+        }]
+    }
+
+        /*  {
+             title: 'Groups',
+             iconCls: 'fa-users',
+                 
+         },*/
+
         // {
         //     title: 'Settings',
         //     iconCls: 'fa-cog',
